@@ -58,4 +58,15 @@ describe('guard', () => {
     expect(guard(F, spy, null)()).to.be(null);
     expect(spy.called).to.not.be.ok();
   });
+
+  it('should throw an Error if Error passed as nothing', () => {
+    spy = sinon.spy();
+    let err = new Error('ERROR');
+    try {
+      guard(F, spy, err);
+    } catch(e) {
+      expect(spy.called).to.not.be.ok();
+      expect(e).to.be(err);
+    }
+  });
 });
