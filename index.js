@@ -12,6 +12,10 @@ module.exports = function (pred, fn, nothing) {
       args[_key] = arguments[_key];
     }
 
-    return apply(pred, args) ? apply(fn, args) : nothing;
+    if (apply(pred, args)) return apply(fn, args);
+
+    if (nothing instanceof Error) throw nothing;
+
+    return nothing;
   };
 };
