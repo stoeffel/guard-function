@@ -29,7 +29,7 @@ capitalize("you shall not pass!"); // => "You shall not pass!"
 let div = (a, b) => a / b;
 
 // Throw exception instead of failing silently by passing an Error instance as 3rd param
-div = guard((a, b) => b > 0, div, new Error('Divide by 0!');
+div = guard((a, b) => b !== 0, div, new Error('Divide by 0!');
 
 div(8, 2); // => 4
 
