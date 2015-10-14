@@ -4,6 +4,9 @@
   "description": "Guard a function using a predicate",
   "main": "index.js",
   "scripts": {
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm version minor && npm publish && git push --follow-tags",
+    "major-release": "npm version major && npm publish && git push --follow-tags",
     "test": "gulp test"
   },
   "repository": {
